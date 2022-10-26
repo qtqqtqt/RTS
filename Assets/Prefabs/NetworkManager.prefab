@@ -26,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3405556309083087394}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -50,8 +50,8 @@ MonoBehaviour:
   runInBackground: 1
   autoStartServerBuild: 1
   serverTickRate: 30
-  offlineScene: 
-  onlineScene: 
+  offlineScene: Assets/Scenes/Menu.unity
+  onlineScene: Assets/Scenes/SandboxMap.unity
   transport: {fileID: 3405556309083087404}
   networkAddress: localhost
   maxConnections: 100
@@ -63,6 +63,7 @@ MonoBehaviour:
   spawnPrefabs:
   - {fileID: 2400332380917429374, guid: 6cb6d05cfcc0f45db842c949a9585f86, type: 3}
   - {fileID: 6023059882741788450, guid: 7a5828f3c149c45b786b27b65d1f4fb4, type: 3}
+  - {fileID: 955358417308725752, guid: 11ff05d93e9934080a6e059237edd76a, type: 3}
   unitSpawnerPrefab: {fileID: 6023059882741788450, guid: 7a5828f3c149c45b786b27b65d1f4fb4,
     type: 3}
 --- !u!114 &3405556309083087404

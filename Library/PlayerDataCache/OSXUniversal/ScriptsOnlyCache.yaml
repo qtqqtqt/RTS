@@ -2,8 +2,12 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - RTS.Buildings.UnitSpawner
+    - RTS.Combat.Health
+    - RTS.Combat.HealthDisplay
     - RTS.Combat.Targetable
     - RTS.Combat.Targeter
+    - RTS.Combat.UnitFiring
+    - RTS.Combat.UnitProjectile
     - RTS.Networking.RTSNetworkManager
     - RTS.Networking.RTSPlayer
     - RTS.Units.Core.Unit
@@ -82,6 +86,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
+    - Class: 54
+      Script: {instanceID: 0}
     - Class: 65
       Script: {instanceID: 0}
     - Class: 81
@@ -92,6 +98,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 108
       Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 1682}
     - Class: 114
       Script: {instanceID: 2188}
     - Class: 114
@@ -118,7 +126,17 @@ ScriptsOnlyBuild:
       Script: {instanceID: 22934}
     - Class: 114
       Script: {instanceID: 22936}
+    - Class: 114
+      Script: {instanceID: 23762}
+    - Class: 114
+      Script: {instanceID: 24504}
+    - Class: 114
+      Script: {instanceID: 26338}
+    - Class: 114
+      Script: {instanceID: 26672}
     - Class: 115
+      Script: {instanceID: 0}
+    - Class: 135
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
@@ -129,6 +147,12 @@ ScriptsOnlyBuild:
     - Class: 212
       Script: {instanceID: 0}
     - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
       Script: {instanceID: 0}
     Assets/Scenes/SandboxMap.unity:
     - Class: 1
@@ -148,6 +172,8 @@ ScriptsOnlyBuild:
     - Class: 43
       Script: {instanceID: 0}
     - Class: 48
+      Script: {instanceID: 0}
+    - Class: 54
       Script: {instanceID: 0}
     - Class: 65
       Script: {instanceID: 0}
@@ -207,7 +233,17 @@ ScriptsOnlyBuild:
       Script: {instanceID: 22936}
     - Class: 114
       Script: {instanceID: 23548}
+    - Class: 114
+      Script: {instanceID: 23762}
+    - Class: 114
+      Script: {instanceID: 24504}
+    - Class: 114
+      Script: {instanceID: 26338}
+    - Class: 114
+      Script: {instanceID: 26672}
     - Class: 115
+      Script: {instanceID: 0}
+    - Class: 135
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
@@ -1974,6 +2010,30 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 2a45331dd53a0eba6209afa73eaf8aca
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: RTS.Combat
+    className: UnitFiring
+  - hash:
+      serializedVersion: 2
+      Hash: 9f76d524216d40c5272853d7189da374
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: RTS.Combat
+    className: UnitProjectile
+  - hash:
+      serializedVersion: 2
+      Hash: 514775331e04882828052c5022b7ab5d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: RTS.Combat
+    className: Health
+  - hash:
+      serializedVersion: 2
+      Hash: 1cdc4b0b3be9ad442763b453556cdfb3
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: RTS.Combat
+    className: HealthDisplay
   platform: 2
   scenePathNames:
   - Assets/Scenes/Menu.unity

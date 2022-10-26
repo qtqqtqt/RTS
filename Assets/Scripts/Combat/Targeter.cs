@@ -14,6 +14,11 @@ namespace RTS.Combat
             return target;
         }
 
+        public Transform GetTargetAimAtPoint()
+        {
+            return target.GetAimAtPoint();
+        }
+
         #region Server
 
         [Command]

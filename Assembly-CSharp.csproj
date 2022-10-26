@@ -65,6 +65,10 @@
     <Compile Include="Assets/Scripts/Units/Core/Unit.cs" />
     <Compile Include="Assets/Scripts/Networking/RTSNetworkManager.cs" />
     <Compile Include="Assets/Scripts/Combat/Targeter.cs" />
+    <Compile Include="Assets/Scripts/Combat/UnitFiring.cs" />
+    <Compile Include="Assets/Scripts/Combat/UnitProjectile.cs" />
+    <Compile Include="Assets/Scripts/Combat/Health.cs" />
+    <Compile Include="Assets/Scripts/Combat/HealthDisplay.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/Asset Packs/Mirror/Plugins/Mono.Cecil/Mono.CecilX.dll" />
