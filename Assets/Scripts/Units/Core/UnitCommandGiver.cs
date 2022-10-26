@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using RTS.Combat;
 using RTS.Units.Movement;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -11,6 +12,12 @@ namespace RTS.Units.Core
         [SerializeField] LayerMask layerMask = new();
 
         Camera mainCamera;
+        UnitSelectionHandler unitSelectionHandler;
+
+        private void Awake()
+        {
+            unitSelectionHandler = GetComponent<UnitSelectionHandler>();
+        }
 
         private void Start()
         {
@@ -25,16 +32,32 @@ namespace RTS.Units.Core
 
             if (!Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, layerMask)) return;
 
+            if(hit.collider.TryGetComponent(out Targetable target))
+            {
+                if (target.hasAuthority)
+                {
+                    TryMove(hit.point);
+                    return;
+                }
+                TryTarget(target);
+                return;
+            }
             TryMove(hit.point);
         }
 
         private void TryMove(Vector3 point)
         {
-            var unitSelectionHandler = GetComponent<UnitSelectionHandler>();
-
             foreach (Unit unit in unitSelectionHandler.SelectedUnits)
             {
-                unit.GetComponent<UnitMovement>().CmdMove(point);
+                unit.GetUnitMovement().CmdMove(point);
+            }
+        }
+
+        private void TryTarget(Targetable target)
+        {
+            foreach (Unit unit in unitSelectionHandler.SelectedUnits)
+            {
+                unit.GetTargeter().CmdSetTarget(target.gameObject);
             }
         }
     }

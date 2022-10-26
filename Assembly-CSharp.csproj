@@ -61,8 +61,10 @@
     <Compile Include="Assets/Scripts/Units/Movement/UnitMovement.cs" />
     <Compile Include="Assets/Scripts/Buildings/UnitSpawner.cs" />
     <Compile Include="Assets/Scripts/Units/Core/UnitSelectionHandler.cs" />
+    <Compile Include="Assets/Scripts/Combat/Targetable.cs" />
     <Compile Include="Assets/Scripts/Units/Core/Unit.cs" />
     <Compile Include="Assets/Scripts/Networking/RTSNetworkManager.cs" />
+    <Compile Include="Assets/Scripts/Combat/Targeter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/Asset Packs/Mirror/Plugins/Mono.Cecil/Mono.CecilX.dll" />
@@ -708,8 +710,17 @@
     <Reference Include="Unity.VisualScripting.Flow.Editor">
       <HintPath>Library/ScriptAssemblies/Unity.VisualScripting.Flow.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Cinemachine">
+      <HintPath>Library/ScriptAssemblies/Cinemachine.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.cinemachine.editor">
+      <HintPath>Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Shared.Editor">
+      <HintPath>Library/ScriptAssemblies/Unity.VisualScripting.Shared.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
@@ -744,20 +755,11 @@
     <Reference Include="UnityEngine.UI">
       <HintPath>Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VisualScripting.Core">
-      <HintPath>Library/ScriptAssemblies/Unity.VisualScripting.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Cinemachine">
-      <HintPath>Library/ScriptAssemblies/Cinemachine.dll</HintPath>
-    </Reference>
-    <Reference Include="com.unity.cinemachine.editor">
-      <HintPath>Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Shared.Editor">
-      <HintPath>Library/ScriptAssemblies/Unity.VisualScripting.Shared.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.VisualScripting.State">
       <HintPath>Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Core">
+      <HintPath>Library/ScriptAssemblies/Unity.VisualScripting.Core.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -769,13 +771,13 @@
       <Project>{05143406-9093-B0C5-A8D3-6154814FE0F6}</Project>
       <Name>kcp2k</Name>
     </ProjectReference>
-    <ProjectReference Include="Mirror.Examples.csproj">
-      <Project>{34AAE7CD-3284-866A-7503-B2C5B6BAD537}</Project>
-      <Name>Mirror.Examples</Name>
-    </ProjectReference>
     <ProjectReference Include="Mirror.Editor.csproj">
       <Project>{60C62225-1FDC-A4BB-2CE7-81CFEEC51C4C}</Project>
       <Name>Mirror.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Mirror.Examples.csproj">
+      <Project>{34AAE7CD-3284-866A-7503-B2C5B6BAD537}</Project>
+      <Name>Mirror.Examples</Name>
     </ProjectReference>
     <ProjectReference Include="Mirror.CompilerSymbols.csproj">
       <Project>{BA1A2005-E984-5BED-B9C0-22A0479DF881}</Project>

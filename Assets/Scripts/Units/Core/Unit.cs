@@ -4,11 +4,15 @@ using UnityEngine;
 using Mirror;
 using UnityEngine.Events;
 using System;
+using RTS.Units.Movement;
+using RTS.Combat;
 
 namespace RTS.Units.Core
 {
     public class Unit : NetworkBehaviour
     {
+        [SerializeField] UnitMovement unitMovement;
+        [SerializeField] Targeter targeter;
         [SerializeField] UnityEvent onSelected;
         [SerializeField] UnityEvent onDeselected;
 
@@ -19,6 +23,16 @@ namespace RTS.Units.Core
         public static event Action<Unit> AuthorityOnUnitDespawned;
 
         bool isHighlighted = false;
+
+        public UnitMovement GetUnitMovement()
+        {
+            return unitMovement;
+        }
+
+        public Targeter GetTargeter()
+        {
+            return targeter;
+        }
 
         public bool IsHighlighted()
         {
