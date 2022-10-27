@@ -51,7 +51,7 @@ MonoBehaviour:
   autoStartServerBuild: 1
   serverTickRate: 30
   offlineScene: Assets/Scenes/Menu.unity
-  onlineScene: Assets/Scenes/SandboxMap.unity
+  onlineScene: Assets/Scenes/Map01.unity
   transport: {fileID: 3405556309083087404}
   networkAddress: localhost
   maxConnections: 100
@@ -64,7 +64,10 @@ MonoBehaviour:
   - {fileID: 2400332380917429374, guid: 6cb6d05cfcc0f45db842c949a9585f86, type: 3}
   - {fileID: 6023059882741788450, guid: 7a5828f3c149c45b786b27b65d1f4fb4, type: 3}
   - {fileID: 955358417308725752, guid: 11ff05d93e9934080a6e059237edd76a, type: 3}
+  - {fileID: 6348135560877439459, guid: d3ea7d4ca45a04e8a862433134e5d205, type: 3}
   unitSpawnerPrefab: {fileID: 6023059882741788450, guid: 7a5828f3c149c45b786b27b65d1f4fb4,
+    type: 3}
+  gameOverHandlerPrefab: {fileID: 8572268605782382161, guid: d3ea7d4ca45a04e8a862433134e5d205,
     type: 3}
 --- !u!114 &3405556309083087404
 MonoBehaviour:

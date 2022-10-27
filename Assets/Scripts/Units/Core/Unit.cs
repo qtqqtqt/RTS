@@ -12,6 +12,7 @@ namespace RTS.Units.Core
     public class Unit : NetworkBehaviour
     {
         [SerializeField] UnitMovement unitMovement;
+        [SerializeField] Health health;
         [SerializeField] Targeter targeter;
         [SerializeField] UnityEvent onSelected;
         [SerializeField] UnityEvent onDeselected;
@@ -44,27 +45,33 @@ namespace RTS.Units.Core
         public override void OnStartServer()
         {
             ServerOnUnitSpawned?.Invoke(this);
+            health.ServerOnDie += ServerHandleDeath;
         }
 
         public override void OnStopServer()
         {
             ServerOnUnitDespawned?.Invoke(this);
+            health.ServerOnDie -= ServerHandleDeath;
+        }
+
+        [Server]
+        private void ServerHandleDeath()
+        {
+            NetworkServer.Destroy(gameObject);
         }
 
         #endregion
 
         #region Client
 
-        public override void OnStartClient()
+        public override void OnStartAuthority()
         {
-            if (!isClientOnly || !hasAuthority) return;
-
             AuthorityOnUnitSpawned?.Invoke(this);
         }
 
         public override void OnStopClient()
         {
-            if (!isClientOnly || !hasAuthority) return;
+            if (!hasAuthority) return;
 
             AuthorityOnUnitDespawned?.Invoke(this);
         }

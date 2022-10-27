@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Mirror;
+using RTS.Buildings;
 using UnityEngine;
 
 namespace RTS.Combat
@@ -12,6 +13,16 @@ namespace RTS.Combat
         public Targetable GetTarget()
         {
             return target;
+        }
+
+        public override void OnStartServer()
+        {
+            GameOverHandler.ServerOnGameOver += ServerHandleGameOver;
+        }
+
+        public override void OnStopServer()
+        {
+            GameOverHandler.ServerOnGameOver -= ServerHandleGameOver;
         }
 
         public Transform GetTargetAimAtPoint()
@@ -33,6 +44,12 @@ namespace RTS.Combat
         public void ClearTarget()
         {
             target = null;
+        }
+
+        [Server]
+        private void ServerHandleGameOver()
+        {
+            ClearTarget();
         }
 
         #endregion

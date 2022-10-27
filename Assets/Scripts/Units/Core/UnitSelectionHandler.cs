@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using RTS.Networking;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using RTS.Buildings;
 
 namespace RTS.Units.Core
 {
@@ -22,6 +23,14 @@ namespace RTS.Units.Core
         private void Start()
         {
             mainCamera = Camera.main;
+            Unit.AuthorityOnUnitDespawned += AuthorityHandleUnitDespawned;
+            GameOverHandler.ClientOnGameOver += ClientHandleGameOver;
+        }
+
+        private void OnDestroy()
+        {
+            Unit.AuthorityOnUnitDespawned -= AuthorityHandleUnitDespawned;
+            GameOverHandler.ClientOnGameOver -= ClientHandleGameOver;
         }
 
         private void Update()
@@ -134,6 +143,16 @@ namespace RTS.Units.Core
             }
 
             SelectedUnits.Clear();
+        }
+
+        private void AuthorityHandleUnitDespawned(Unit unit)
+        {
+            SelectedUnits.Remove(unit); 
+        }
+
+        private void ClientHandleGameOver(string winner)
+        {
+            enabled = false;
         }
 
         private Vector2 GetMousePosition()

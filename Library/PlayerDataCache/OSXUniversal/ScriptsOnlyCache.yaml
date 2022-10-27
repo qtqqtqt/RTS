@@ -1,6 +1,9 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - RTS.Buildings.GameOverDisplay
+    - RTS.Buildings.GameOverHandler
+    - RTS.Buildings.UnitBase
     - RTS.Buildings.UnitSpawner
     - RTS.Combat.Health
     - RTS.Combat.HealthDisplay
@@ -28,6 +31,12 @@ ScriptsOnlyBuild:
     - UnityEngine.InputSystem.InputSystemObject
     - UnityEngine.InputSystem.RemoteInputPlayerConnection
     - UnityEngine.InputSystem.UI.InputSystemUIInputModule
+    Unity.TextMeshPro.dll:
+    - TMPro.TMP_FontAsset
+    - TMPro.TMP_Settings
+    - TMPro.TMP_SpriteAsset
+    - TMPro.TMP_StyleSheet
+    - TMPro.TextMeshProUGUI
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -35,7 +44,9 @@ ScriptsOnlyBuild:
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.PhysicsRaycaster
+    - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
+    - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
   serializedClasses:
     Unity.InputSystem:
@@ -46,13 +57,38 @@ ScriptsOnlyBuild:
     - UnityEngine.InputSystem.InputControlScheme/DeviceRequirement
     - UnityEngine.InputSystem.InputSettings/iOSSettings
     - UnityEngine.InputSystem.iOS.PrivacyDataUsage
+    Unity.TextMeshPro:
+    - TMPro.FaceInfo_Legacy
+    - TMPro.FontAssetCreationSettings
+    - TMPro.KerningTable
+    - TMPro.TMP_Character
+    - TMPro.TMP_FontFeatureTable
+    - TMPro.TMP_FontWeightPair
+    - TMPro.TMP_GlyphAdjustmentRecord
+    - TMPro.TMP_GlyphPairAdjustmentRecord
+    - TMPro.TMP_GlyphValueRecord
+    - TMPro.TMP_Sprite
+    - TMPro.TMP_SpriteCharacter
+    - TMPro.TMP_SpriteGlyph
+    - TMPro.TMP_Style
+    - TMPro.VertexGradient
     UnityEngine.CoreModule:
     - UnityEngine.Events.ArgumentCache
     - UnityEngine.Events.PersistentCallGroup
     - UnityEngine.Events.PersistentListenerMode
     - UnityEngine.Events.UnityEvent
+    UnityEngine.TextCoreFontEngineModule:
+    - UnityEngine.TextCore.FaceInfo
+    - UnityEngine.TextCore.Glyph
+    - UnityEngine.TextCore.GlyphMetrics
+    - UnityEngine.TextCore.GlyphRect
     UnityEngine.UI:
+    - UnityEngine.UI.AnimationTriggers
+    - UnityEngine.UI.Button/ButtonClickedEvent
+    - UnityEngine.UI.ColorBlock
     - UnityEngine.UI.MaskableGraphic/CullStateChangedEvent
+    - UnityEngine.UI.Navigation
+    - UnityEngine.UI.SpriteState
   methodsToPreserve:
   - assembly: UnityEngine.CoreModule
     fullTypeName: UnityEngine.Renderer
@@ -60,6 +96,9 @@ ScriptsOnlyBuild:
   - assembly: UnityEngine.CoreModule
     fullTypeName: UnityEngine.Renderer
     methodName: set_enabled
+  - assembly: Assembly-CSharp
+    fullTypeName: RTS.Buildings.GameOverDisplay
+    methodName: LeaveGame
   - assembly: UnityEngine.CoreModule
     fullTypeName: UnityEngine.Renderer
     methodName: set_enabled
@@ -67,7 +106,7 @@ ScriptsOnlyBuild:
     fullTypeName: UnityEngine.Renderer
     methodName: set_enabled
   sceneClasses:
-    Assets/Scenes/Menu.unity:
+    Assets/Scenes/Map01.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -99,149 +138,76 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1682}
+      Script: {instanceID: 1706}
     - Class: 114
-      Script: {instanceID: 2188}
+      Script: {instanceID: 1708}
     - Class: 114
-      Script: {instanceID: 2458}
+      Script: {instanceID: 1950}
     - Class: 114
-      Script: {instanceID: 2668}
+      Script: {instanceID: 2216}
     - Class: 114
-      Script: {instanceID: 4416}
+      Script: {instanceID: 2342}
     - Class: 114
-      Script: {instanceID: 4528}
+      Script: {instanceID: 2486}
     - Class: 114
-      Script: {instanceID: 4870}
+      Script: {instanceID: 2696}
     - Class: 114
-      Script: {instanceID: 5096}
+      Script: {instanceID: 2750}
     - Class: 114
-      Script: {instanceID: 6088}
+      Script: {instanceID: 3134}
     - Class: 114
-      Script: {instanceID: 6686}
+      Script: {instanceID: 3200}
     - Class: 114
-      Script: {instanceID: 7282}
+      Script: {instanceID: 3796}
     - Class: 114
-      Script: {instanceID: 7290}
+      Script: {instanceID: 3840}
     - Class: 114
-      Script: {instanceID: 22934}
+      Script: {instanceID: 3848}
     - Class: 114
-      Script: {instanceID: 22936}
+      Script: {instanceID: 4180}
     - Class: 114
-      Script: {instanceID: 23762}
+      Script: {instanceID: 4448}
     - Class: 114
-      Script: {instanceID: 24504}
+      Script: {instanceID: 4560}
     - Class: 114
-      Script: {instanceID: 26338}
+      Script: {instanceID: 4902}
     - Class: 114
-      Script: {instanceID: 26672}
+      Script: {instanceID: 5128}
+    - Class: 114
+      Script: {instanceID: 5136}
+    - Class: 114
+      Script: {instanceID: 5658}
+    - Class: 114
+      Script: {instanceID: 5832}
+    - Class: 114
+      Script: {instanceID: 5872}
+    - Class: 114
+      Script: {instanceID: 6120}
+    - Class: 114
+      Script: {instanceID: 6340}
+    - Class: 114
+      Script: {instanceID: 6508}
+    - Class: 114
+      Script: {instanceID: 6722}
+    - Class: 114
+      Script: {instanceID: 7134}
+    - Class: 114
+      Script: {instanceID: 7318}
+    - Class: 114
+      Script: {instanceID: 7326}
+    - Class: 114
+      Script: {instanceID: 7380}
+    - Class: 114
+      Script: {instanceID: 7592}
+    - Class: 114
+      Script: {instanceID: 22988}
+    - Class: 114
+      Script: {instanceID: 22990}
+    - Class: 114
+      Script: {instanceID: 23518}
     - Class: 115
       Script: {instanceID: 0}
-    - Class: 135
-      Script: {instanceID: 0}
-    - Class: 157
-      Script: {instanceID: 0}
-    - Class: 195
-      Script: {instanceID: 0}
-    - Class: 196
-      Script: {instanceID: 0}
-    - Class: 212
-      Script: {instanceID: 0}
-    - Class: 213
-      Script: {instanceID: 0}
-    - Class: 222
-      Script: {instanceID: 0}
-    - Class: 223
-      Script: {instanceID: 0}
-    - Class: 224
-      Script: {instanceID: 0}
-    Assets/Scenes/SandboxMap.unity:
-    - Class: 1
-      Script: {instanceID: 0}
-    - Class: 4
-      Script: {instanceID: 0}
-    - Class: 20
-      Script: {instanceID: 0}
-    - Class: 21
-      Script: {instanceID: 0}
-    - Class: 23
-      Script: {instanceID: 0}
-    - Class: 28
-      Script: {instanceID: 0}
-    - Class: 33
-      Script: {instanceID: 0}
-    - Class: 43
-      Script: {instanceID: 0}
-    - Class: 48
-      Script: {instanceID: 0}
-    - Class: 54
-      Script: {instanceID: 0}
-    - Class: 65
-      Script: {instanceID: 0}
-    - Class: 81
-      Script: {instanceID: 0}
-    - Class: 89
-      Script: {instanceID: 0}
-    - Class: 104
-      Script: {instanceID: 0}
-    - Class: 108
-      Script: {instanceID: 0}
-    - Class: 114
-      Script: {instanceID: 1682}
-    - Class: 114
-      Script: {instanceID: 2188}
-    - Class: 114
-      Script: {instanceID: 2314}
-    - Class: 114
-      Script: {instanceID: 2458}
-    - Class: 114
-      Script: {instanceID: 2668}
-    - Class: 114
-      Script: {instanceID: 2722}
-    - Class: 114
-      Script: {instanceID: 3106}
-    - Class: 114
-      Script: {instanceID: 3816}
-    - Class: 114
-      Script: {instanceID: 4148}
-    - Class: 114
-      Script: {instanceID: 4416}
-    - Class: 114
-      Script: {instanceID: 4528}
-    - Class: 114
-      Script: {instanceID: 4870}
-    - Class: 114
-      Script: {instanceID: 5096}
-    - Class: 114
-      Script: {instanceID: 5626}
-    - Class: 114
-      Script: {instanceID: 5840}
-    - Class: 114
-      Script: {instanceID: 6088}
-    - Class: 114
-      Script: {instanceID: 6472}
-    - Class: 114
-      Script: {instanceID: 6686}
-    - Class: 114
-      Script: {instanceID: 7098}
-    - Class: 114
-      Script: {instanceID: 7282}
-    - Class: 114
-      Script: {instanceID: 7290}
-    - Class: 114
-      Script: {instanceID: 22934}
-    - Class: 114
-      Script: {instanceID: 22936}
-    - Class: 114
-      Script: {instanceID: 23548}
-    - Class: 114
-      Script: {instanceID: 23762}
-    - Class: 114
-      Script: {instanceID: 24504}
-    - Class: 114
-      Script: {instanceID: 26338}
-    - Class: 114
-      Script: {instanceID: 26672}
-    - Class: 115
+    - Class: 128
       Script: {instanceID: 0}
     - Class: 135
       Script: {instanceID: 0}
@@ -262,6 +228,109 @@ ScriptsOnlyBuild:
     - Class: 224
       Script: {instanceID: 0}
     - Class: 238
+      Script: {instanceID: 0}
+    Assets/Scenes/Menu.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 23
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 33
+      Script: {instanceID: 0}
+    - Class: 43
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 49
+      Script: {instanceID: 0}
+    - Class: 54
+      Script: {instanceID: 0}
+    - Class: 65
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 1708}
+    - Class: 114
+      Script: {instanceID: 1950}
+    - Class: 114
+      Script: {instanceID: 2216}
+    - Class: 114
+      Script: {instanceID: 2332}
+    - Class: 114
+      Script: {instanceID: 2486}
+    - Class: 114
+      Script: {instanceID: 2696}
+    - Class: 114
+      Script: {instanceID: 3796}
+    - Class: 114
+      Script: {instanceID: 3840}
+    - Class: 114
+      Script: {instanceID: 4226}
+    - Class: 114
+      Script: {instanceID: 4448}
+    - Class: 114
+      Script: {instanceID: 4468}
+    - Class: 114
+      Script: {instanceID: 4560}
+    - Class: 114
+      Script: {instanceID: 4902}
+    - Class: 114
+      Script: {instanceID: 5128}
+    - Class: 114
+      Script: {instanceID: 5136}
+    - Class: 114
+      Script: {instanceID: 6120}
+    - Class: 114
+      Script: {instanceID: 6184}
+    - Class: 114
+      Script: {instanceID: 6722}
+    - Class: 114
+      Script: {instanceID: 7318}
+    - Class: 114
+      Script: {instanceID: 7326}
+    - Class: 114
+      Script: {instanceID: 7380}
+    - Class: 114
+      Script: {instanceID: 7592}
+    - Class: 114
+      Script: {instanceID: 22988}
+    - Class: 114
+      Script: {instanceID: 22990}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 135
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 195
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 212
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -360,6 +429,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.InputSystem.dll
     namespaceName: UnityEngine.InputSystem.HID.Editor
     className: HIDDescriptorWindow
+  - hash:
+      serializedVersion: 2
+      Hash: 380ddbbf75cc03be59f0520ff8452c87
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: RTS.Buildings
+    className: UnitBase
   - hash:
       serializedVersion: 2
       Hash: 29cb5ccadda8ab62d8dba6d24d61faa4
@@ -830,10 +905,22 @@ ScriptsOnlyBuild:
     className: PlayerCamera
   - hash:
       serializedVersion: 2
+      Hash: 2a45331dd53a0eba6209afa73eaf8aca
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: RTS.Combat
+    className: UnitFiring
+  - hash:
+      serializedVersion: 2
       Hash: 2574ac7d50617d23cdefe4ad22f5e1ad
     assemblyName: Unity.VisualScripting.Flow.dll
     namespaceName: Unity.VisualScripting
     className: ScriptGraphAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 514775331e04882828052c5022b7ab5d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: RTS.Combat
+    className: Health
   - hash:
       serializedVersion: 2
       Hash: d79be48f820686024dd0d9e080d7733b
@@ -1508,7 +1595,7 @@ ScriptsOnlyBuild:
     className: ClientCube
   - hash:
       serializedVersion: 2
-      Hash: 82b5fa49ea9807fa667ad3f7517fb1f1
+      Hash: b5323ccd9d6478e02f5641f87d56bc0a
     assemblyName: Assembly-CSharp.dll
     namespaceName: RTS.Units.Core
     className: Unit
@@ -1548,6 +1635,12 @@ ScriptsOnlyBuild:
     assemblyName: Mirror.Examples.dll
     namespaceName: Mirror.Examples.MultipleMatch
     className: CellGUI
+  - hash:
+      serializedVersion: 2
+      Hash: 6fd2bb55b3ee5edb6040a1c5bccd0e07
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: RTS.Buildings
+    className: GameOverHandler
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1596,6 +1689,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.InputSystem.dll
     namespaceName: UnityEngine.InputSystem.Editor
     className: PlayerInputEditor
+  - hash:
+      serializedVersion: 2
+      Hash: a9f7a8bcf61cced643d9cd80097869da
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: RTS.Buildings
+    className: GameOverDisplay
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1700,7 +1799,7 @@ ScriptsOnlyBuild:
     className: PlayModeRunnerCallback
   - hash:
       serializedVersion: 2
-      Hash: 642f836ec0876606c27e63a67cf18dcd
+      Hash: c99051cc0a4f103bf7e37da1b978d087
     assemblyName: Assembly-CSharp.dll
     namespaceName: RTS.Networking
     className: RTSNetworkManager
@@ -1892,6 +1991,12 @@ ScriptsOnlyBuild:
     className: TrackedPoseDriver
   - hash:
       serializedVersion: 2
+      Hash: 1cdc4b0b3be9ad442763b453556cdfb3
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: RTS.Combat
+    className: HealthDisplay
+  - hash:
+      serializedVersion: 2
       Hash: 7b6113efb956a45fe463259b12a0687f
     assemblyName: Mirror.Examples.dll
     namespaceName: Mirror.Examples.Chat
@@ -1944,6 +2049,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_ScrollbarEventHandler
+  - hash:
+      serializedVersion: 2
+      Hash: 9f76d524216d40c5272853d7189da374
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: RTS.Combat
+    className: UnitProjectile
   - hash:
       serializedVersion: 2
       Hash: 66a76d307baa3e8eb65d877c961f1b43
@@ -2010,32 +2121,8 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
-  - hash:
-      serializedVersion: 2
-      Hash: 2a45331dd53a0eba6209afa73eaf8aca
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: RTS.Combat
-    className: UnitFiring
-  - hash:
-      serializedVersion: 2
-      Hash: 9f76d524216d40c5272853d7189da374
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: RTS.Combat
-    className: UnitProjectile
-  - hash:
-      serializedVersion: 2
-      Hash: 514775331e04882828052c5022b7ab5d
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: RTS.Combat
-    className: Health
-  - hash:
-      serializedVersion: 2
-      Hash: 1cdc4b0b3be9ad442763b453556cdfb3
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: RTS.Combat
-    className: HealthDisplay
   platform: 2
   scenePathNames:
   - Assets/Scenes/Menu.unity
-  - Assets/Scenes/SandboxMap.unity
+  - Assets/Scenes/Map01.unity
   playerPath: /Users/alice/Desktop/Builds/RTS.app

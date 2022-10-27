@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Mirror;
+using RTS.Buildings;
 using UnityEngine;
 
 namespace RTS.Combat
@@ -21,6 +22,12 @@ namespace RTS.Combat
         public override void OnStartServer()
         {
             currentHealth = maxHealth;
+            UnitBase.ServerOnPlayerDie += ServerHandlePlayerDeath;
+        }
+
+        public override void OnStopServer()
+        {
+            UnitBase.ServerOnPlayerDie -= ServerHandlePlayerDeath;
         }
 
         [Server]
@@ -33,7 +40,14 @@ namespace RTS.Combat
             if (currentHealth != 0) return;
 
             ServerOnDie?.Invoke();
-            Debug.Log("Died");
+        }
+
+        [Server]
+        private void ServerHandlePlayerDeath(int connectionId)
+        {
+            if (connectionToClient.connectionId != connectionId) return;
+
+            DealDamage(currentHealth);
         }
 
         #endregion

@@ -4,6 +4,7 @@ using UnityEngine;
 using Mirror;
 using UnityEngine.AI;
 using RTS.Combat;
+using RTS.Buildings;
 
 namespace RTS.Units.Movement
 {
@@ -14,6 +15,16 @@ namespace RTS.Units.Movement
         [SerializeField] float chaseRange = 5f;
 
         #region Server
+
+        public override void OnStartServer()
+        {
+            GameOverHandler.ServerOnGameOver += ServerHandleGameOver;
+        }
+
+        public override void OnStopServer()
+        {
+            GameOverHandler.ServerOnGameOver -= ServerHandleGameOver;
+        }
 
         [ServerCallback]
         private void Update()
@@ -50,6 +61,12 @@ namespace RTS.Units.Movement
             if (!NavMesh.SamplePosition(position, out NavMeshHit hit, 0.1f, NavMesh.AllAreas)) return;
 
             agent.SetDestination(hit.position);
+        }
+
+        [Server]
+        private void ServerHandleGameOver()
+        {
+            agent.ResetPath();
         }
 
         #endregion

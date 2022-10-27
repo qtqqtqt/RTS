@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using RTS.Buildings;
 using RTS.Combat;
-using RTS.Units.Movement;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -22,6 +22,12 @@ namespace RTS.Units.Core
         private void Start()
         {
             mainCamera = Camera.main;
+            GameOverHandler.ClientOnGameOver += ClientHandleGameOver;
+        }
+
+        private void OnDestroy()
+        {
+            GameOverHandler.ClientOnGameOver -= ClientHandleGameOver;
         }
 
         private void Update()
@@ -59,6 +65,11 @@ namespace RTS.Units.Core
             {
                 unit.GetTargeter().CmdSetTarget(target.gameObject);
             }
+        }
+
+        private void ClientHandleGameOver(string winner)
+        {
+            enabled = false;
         }
     }
 

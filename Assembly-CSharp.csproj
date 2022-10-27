@@ -56,29 +56,53 @@
     <Analyzer Include="/Applications/Visual Studio.app/Contents/MonoBundle/Addins/MonoDevelop.Unity/Analyzers/Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets/Scripts/Buildings/UnitBase.cs" />
     <Compile Include="Assets/Scripts/Networking/RTSPlayer.cs" />
     <Compile Include="Assets/Scripts/Units/Core/UnitCommandGiver.cs" />
     <Compile Include="Assets/Scripts/Units/Movement/UnitMovement.cs" />
     <Compile Include="Assets/Scripts/Buildings/UnitSpawner.cs" />
     <Compile Include="Assets/Scripts/Units/Core/UnitSelectionHandler.cs" />
+    <Compile Include="Assets/Scripts/Combat/UnitFiring.cs" />
+    <Compile Include="Assets/Scripts/Combat/Health.cs" />
     <Compile Include="Assets/Scripts/Combat/Targetable.cs" />
     <Compile Include="Assets/Scripts/Units/Core/Unit.cs" />
+    <Compile Include="Assets/Scripts/Buildings/GameOverHandler.cs" />
+    <Compile Include="Assets/Scripts/Buildings/GameOverDisplay.cs" />
     <Compile Include="Assets/Scripts/Networking/RTSNetworkManager.cs" />
     <Compile Include="Assets/Scripts/Combat/Targeter.cs" />
-    <Compile Include="Assets/Scripts/Combat/UnitFiring.cs" />
-    <Compile Include="Assets/Scripts/Combat/UnitProjectile.cs" />
-    <Compile Include="Assets/Scripts/Combat/Health.cs" />
     <Compile Include="Assets/Scripts/Combat/HealthDisplay.cs" />
+    <Compile Include="Assets/Scripts/Combat/UnitProjectile.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/Asset Packs/Mirror/Plugins/Mono.Cecil/Mono.CecilX.dll" />
+    <None Include="Assets/Asset Packs/TextMesh Pro/Shaders/TMPro.cginc" />
     <None Include="Assets/Asset Packs/Mirror/Plugins/Mono.Cecil/Mono.CecilX.Mdb.dll" />
+    <None Include="Assets/Asset Packs/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets/Asset Packs/TextMesh Pro/Shaders/TMP_Bitmap.shader" />
     <None Include="Assets/Asset Packs/Mirror/Plugins/Mono.Cecil/Mono.CecilX.Pdb.dll" />
+    <None Include="Assets/Asset Packs/TextMesh Pro/Shaders/TMPro_Mobile.cginc" />
+    <None Include="Assets/Asset Packs/TextMesh Pro/Shaders/TMP_SDF SSD.shader" />
     <None Include="Assets/Asset Packs/Mirror/Plugins/Mono.Cecil/Mono.CecilX.Rocks.dll" />
+    <None Include="Assets/Asset Packs/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets/Asset Packs/Mirror/Version.txt" />
     <None Include="Assets/Asset Packs/Mirror/Readme.txt" />
+    <None Include="Assets/Asset Packs/TextMesh Pro/Shaders/TMP_SDF-Surface.shader" />
+    <None Include="Assets/Asset Packs/TextMesh Pro/Sprites/EmojiOne Attribution.txt" />
+    <None Include="Assets/Asset Packs/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader" />
+    <None Include="Assets/Asset Packs/TextMesh Pro/Shaders/TMP_SDF.shader" />
+    <None Include="Assets/Asset Packs/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader" />
+    <None Include="Assets/Asset Packs/TextMesh Pro/Resources/LineBreaking Leading Characters.txt" />
+    <None Include="Assets/Asset Packs/TextMesh Pro/Shaders/TMPro_Properties.cginc" />
+    <None Include="Assets/Asset Packs/TextMesh Pro/Shaders/TMPro_Surface.cginc" />
     <None Include="Assets/Asset Packs/Mirror/Notice.txt" />
+    <None Include="Assets/Asset Packs/TextMesh Pro/Resources/LineBreaking Following Characters.txt" />
     <None Include="Assets/Asset Packs/Mirror/Plugins/Mono.Cecil/License.txt" />
+    <None Include="Assets/Asset Packs/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets/Asset Packs/TextMesh Pro/Shaders/TMP_SDF Overlay.shader" />
+    <None Include="Assets/Asset Packs/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader" />
+    <None Include="Assets/Asset Packs/TextMesh Pro/Fonts/LiberationSans - OFL.txt" />
+    <None Include="Assets/Asset Packs/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader" />
+    <None Include="Assets/Asset Packs/TextMesh Pro/Shaders/TMP_Sprite.shader" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
