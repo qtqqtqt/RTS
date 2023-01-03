@@ -72,6 +72,9 @@
     <Compile Include="Assets/Scripts/Combat/Targeter.cs" />
     <Compile Include="Assets/Scripts/Combat/HealthDisplay.cs" />
     <Compile Include="Assets/Scripts/Combat/UnitProjectile.cs" />
+    <Compile Include="Assets/Scripts/Core/CameraFacing.cs" />
+    <Compile Include="Assets/Scripts/Buildings/Building.cs" />
+    <Compile Include="Assets/Scripts/Buildings/BuildingButton.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/Asset Packs/Mirror/Plugins/Mono.Cecil/Mono.CecilX.dll" />

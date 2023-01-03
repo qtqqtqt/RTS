@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 using UnityEngine.EventSystems;
+using RTS.Combat;
 
 namespace RTS.Buildings
 {
@@ -10,8 +11,25 @@ namespace RTS.Buildings
     {
         [SerializeField] GameObject unitPrefab = null;
         [SerializeField] Transform spawnPoint = null;
+        [SerializeField] Health health;
 
         #region Server
+
+        public override void OnStartServer()
+        {
+            health.ServerOnDie += ServerHandleDeath;
+        }
+
+        public override void OnStopServer()
+        {
+            health.ServerOnDie -= ServerHandleDeath;
+        }
+
+        [Server]
+        private void ServerHandleDeath()
+        {
+            NetworkServer.Destroy(gameObject);
+        }
 
         [Command]
         private void CmdSpawnUnit()
